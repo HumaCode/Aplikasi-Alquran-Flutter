@@ -153,6 +153,7 @@ class HomeView extends GetView<HomeController> {
               Expanded(
                 child: TabBarView(
                   children: [
+                    // SURAH
                     FutureBuilder<List<Surah>>(
                       future: controller.getAllSurah(),
                       builder: (context, snapshot) {
@@ -190,20 +191,36 @@ class HomeView extends GetView<HomeController> {
                                 Get.toNamed(Routes.DETAIL_SURAH,
                                     arguments: surah);
                               },
-                              leading: CircleAvatar(
-                                backgroundColor: Color(0xff5BA273),
-                                child: Text(
-                                  "${surah.number}",
-                                  style: regular,
+                              leading: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage("assets/images/bingkai.png"),
+                                  ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "${surah.number}",
+                                    style: regular.copyWith(
+                                      fontSize: 18,
+                                      color: R.colors.primary,
+                                    ),
+                                  ),
                                 ),
                               ),
                               title: Text(
                                 "Surah ${surah.name?.transliteration?.id ?? 'tidak tersedia'}",
-                                style: regular,
+                                style: regular.copyWith(
+                                  color: R.colors.primary3,
+                                ),
                               ),
                               subtitle: Text(
                                 "${surah.numberOfVerses} Ayat | ${surah.revelation?.id ?? 'tidak tersedia'}",
-                                style: regular,
+                                style: regular.copyWith(
+                                  color: R.colors.grey,
+                                ),
                               ),
                               trailing: Text(
                                 "${surah.name?.short ?? ''}",
@@ -214,7 +231,52 @@ class HomeView extends GetView<HomeController> {
                         );
                       },
                     ),
-                    Center(child: Text("data")),
+
+                    // JUZ
+                    ListView.builder(
+                        itemCount: 30,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            onTap: () {
+                              // pindah halaman sambil membawa parameter surah
+                              // Get.toNamed(Routes.DETAIL_SURAH,
+                              //     arguments: surah);
+                            },
+                            leading: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image:
+                                      AssetImage("assets/images/bingkai.png"),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "${index + 1}",
+                                  style: regular.copyWith(
+                                    fontSize: 18,
+                                    color: R.colors.primary,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            title: Text(
+                              "Juz ${index + 1}",
+                              style: regular.copyWith(
+                                color: R.colors.primary3,
+                              ),
+                            ),
+                            subtitle: Text(
+                              " ${index + 1}",
+                              style: regular.copyWith(
+                                color: R.colors.grey,
+                              ),
+                            ),
+                          );
+                        }),
+
+                    // BOOKMARK
                     Center(child: Text("data")),
                   ],
                 ),
