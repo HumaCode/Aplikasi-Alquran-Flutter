@@ -1,3 +1,4 @@
+import 'package:alquran/app/constants/r.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -8,9 +9,9 @@ void main() {
   runApp(
     GetMaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xffD1F1DD),
+        scaffoldBackgroundColor: R.colors.secondary,
         appBarTheme: AppBarTheme(
-          backgroundColor: Color(0xff5BA273),
+          backgroundColor: R.colors.primary,
           elevation: 0,
         ),
       ),

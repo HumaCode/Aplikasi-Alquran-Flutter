@@ -1,3 +1,4 @@
+import 'package:alquran/app/constants/r.dart';
 import 'package:alquran/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class IntroductionView extends GetView<IntroductionController> {
       body: Center(
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xffD1F1DD),
+            color: R.colors.secondary,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +47,7 @@ class IntroductionView extends GetView<IntroductionController> {
               const SizedBox(height: 30),
               ElevatedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: Color(0xff70B989),
+                  backgroundColor: R.colors.secondary2,
                 ),
                 onPressed: () => Get.offAllNamed(Routes.HOME),
                 child: Text(

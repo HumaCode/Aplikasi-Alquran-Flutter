@@ -1,4 +1,6 @@
+import 'package:alquran/app/constants/r.dart';
 import 'package:alquran/app/data/models/surah.dart';
+import 'package:alquran/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -20,8 +22,7 @@ class HomeView extends GetView<HomeController> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(
-                color: Color(0xff5BA273),
-                semanticsLabel: "Mohon Tunggu...",
+                color: R.colors.primary,
               ),
             );
           }
@@ -46,7 +47,10 @@ class HomeView extends GetView<HomeController> {
               Surah surah = snapshot.data![index];
 
               return ListTile(
-                onTap: () {},
+                onTap: () {
+                  // pindah halaman sambil membawa parameter surah
+                  Get.toNamed(Routes.DETAIL_SURAH, arguments: surah);
+                },
                 leading: CircleAvatar(
                   backgroundColor: Color(0xff5BA273),
                   child: Text("${surah.number}"),
