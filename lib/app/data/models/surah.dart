@@ -2,11 +2,6 @@
 // Get seluruh surah dalam alquran
 
 // URL : https://api.quran.gading.dev/surah
-// Get seluruh surah dalam alquran
-
-// To parse this JSON data, do
-//
-//     final surah = surahFromJson(jsonString);
 
 import 'dart:convert';
 

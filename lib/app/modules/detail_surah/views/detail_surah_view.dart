@@ -58,14 +58,12 @@ class DetailSurahView extends GetView<DetailSurahController> {
 
               // jika datanya tidak ada
               if (!snapshot.hasData) {
-                return Expanded(
-                  child: Center(
-                    child: Text(
-                      "Tidak ada data",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
+                return Center(
+                  child: Text(
+                    "Tidak ada data",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
                 );
