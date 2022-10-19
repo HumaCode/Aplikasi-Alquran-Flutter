@@ -22,7 +22,8 @@ class IntroductionView extends GetView<IntroductionController> {
               Text(
                 'My Quran 4.0',
                 style: bold.copyWith(
-                  fontSize: 25,
+                  fontSize: 30,
+                  color: R.colors.primary,
                 ),
               ),
               const SizedBox(height: 20),
@@ -33,6 +34,7 @@ class IntroductionView extends GetView<IntroductionController> {
                   style: regular.copyWith(
                     fontSize: 15,
                     fontStyle: FontStyle.italic,
+                    color: R.colors.grey,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -47,6 +49,13 @@ class IntroductionView extends GetView<IntroductionController> {
               ElevatedButton(
                 style: TextButton.styleFrom(
                   backgroundColor: R.colors.secondary2,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 10,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 ),
                 onPressed: () => Get.offAllNamed(Routes.HOME),
                 child: Text(

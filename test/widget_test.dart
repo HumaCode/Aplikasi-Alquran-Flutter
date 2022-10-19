@@ -42,7 +42,7 @@ void main() async {
 
   // ======================== //
   // https: //api.quran.gading.dev/surah/108/1
-  Uri urlAyat = Uri.parse("https://api.quran.gading.dev/surah/108/1");
+  Uri urlAyat = Uri.parse("https://api.quran.gading.dev/surah/1/1");
   var resAyat = await http.get(urlAyat);
 
   Map<String, dynamic> data = json.decode(resAyat.body)["data"];
@@ -55,8 +55,8 @@ void main() async {
     "tafsir": data["tafsir"],
   };
 
-  print(dataModel);
+  // print(dataModel["number"]);
   // convert ke bentuk model ayat
   Ayat ayat = Ayat.fromJson(dataModel);
-  print(ayat);
+  // print(ayat.tafsir!.id);
 }
