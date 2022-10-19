@@ -1,7 +1,7 @@
+import 'package:alquran/app/constants/constants.dart';
 import 'package:alquran/app/constants/r.dart';
 import 'package:alquran/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -21,9 +21,8 @@ class IntroductionView extends GetView<IntroductionController> {
             children: [
               Text(
                 'My Quran 4.0',
-                style: TextStyle(
+                style: bold.copyWith(
                   fontSize: 25,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 20),
@@ -31,7 +30,7 @@ class IntroductionView extends GetView<IntroductionController> {
                 padding: const EdgeInsets.symmetric(horizontal: 50),
                 child: Text(
                   '"Sesibukah kamu sampai kau tidak pernah membaca ku..?"',
-                  style: TextStyle(
+                  style: regular.copyWith(
                     fontSize: 15,
                     fontStyle: FontStyle.italic,
                   ),
@@ -52,7 +51,7 @@ class IntroductionView extends GetView<IntroductionController> {
                 onPressed: () => Get.offAllNamed(Routes.HOME),
                 child: Text(
                   "MULAI",
-                  style: TextStyle(
+                  style: bold.copyWith(
                     fontSize: 25,
                   ),
                 ),

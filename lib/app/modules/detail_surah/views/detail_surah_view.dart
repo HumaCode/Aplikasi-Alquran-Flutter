@@ -1,3 +1,4 @@
+import 'package:alquran/app/constants/constants.dart';
 import 'package:alquran/app/constants/r.dart';
 import 'package:alquran/app/data/models/detail_surah.dart' as detail;
 import 'package:alquran/app/data/models/surah.dart';
@@ -20,22 +21,21 @@ class DetailSurahView extends GetView<DetailSurahController> {
         padding: const EdgeInsets.all(5),
         children: [
           Card(
-            color: Color(0xffF2FBF6),
+            color: R.colors.secondary3,
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
                   Text(
                     "${surah.name?.transliteration?.id ?? ''}",
-                    style: TextStyle(
+                    style: bold.copyWith(
                       fontSize: 20,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 5),
                   Text(
                     "${surah.numberOfVerses ?? ''} Ayat | ${surah.revelation?.id ?? ''} | ${surah.name?.translation?.id ?? ''}",
-                    style: TextStyle(
+                    style: regular.copyWith(
                       fontSize: 15,
                     ),
                   ),
@@ -61,10 +61,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
                 return Center(
                   child: Text(
                     "Tidak ada data",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                    style: regular.copyWith(fontSize: 18),
                   ),
                 );
               }
@@ -85,7 +82,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Card(
-                        color: Color(0xffF2FBF6),
+                        color: R.colors.secondary3,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 10),
@@ -128,13 +125,15 @@ class DetailSurahView extends GetView<DetailSurahController> {
                           children: [
                             Text(
                               "${ayat!.text?.arab}",
-                              style: TextStyle(fontSize: 28),
+                              style: regular.copyWith(
+                                fontSize: 28,
+                              ),
                               textAlign: TextAlign.end,
                             ),
                             const SizedBox(height: 5),
                             Text(
                               "${ayat.text?.transliteration?.en}",
-                              style: TextStyle(
+                              style: regular.copyWith(
                                 fontSize: 18,
                                 color: R.colors.primary,
                               ),
@@ -143,7 +142,9 @@ class DetailSurahView extends GetView<DetailSurahController> {
                             const SizedBox(height: 15),
                             Text(
                               "${ayat.translation?.id}",
-                              style: TextStyle(fontSize: 18),
+                              style: regular.copyWith(
+                                fontSize: 18,
+                              ),
                               textAlign: TextAlign.justify,
                             ),
                           ],

@@ -1,3 +1,4 @@
+import 'package:alquran/app/constants/constants.dart';
 import 'package:alquran/app/constants/r.dart';
 import 'package:alquran/app/data/models/surah.dart';
 import 'package:alquran/app/routes/app_pages.dart';
@@ -32,8 +33,7 @@ class HomeView extends GetView<HomeController> {
             return Center(
               child: Text(
                 "Tidak ada data",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                style: bold.copyWith(
                   fontSize: 18,
                 ),
               ),
@@ -53,15 +53,22 @@ class HomeView extends GetView<HomeController> {
                 },
                 leading: CircleAvatar(
                   backgroundColor: Color(0xff5BA273),
-                  child: Text("${surah.number}"),
+                  child: Text(
+                    "${surah.number}",
+                    style: regular,
+                  ),
                 ),
                 title: Text(
-                    "Surah ${surah.name?.transliteration?.id ?? 'tidak tersedia'}"),
+                  "Surah ${surah.name?.transliteration?.id ?? 'tidak tersedia'}",
+                  style: regular,
+                ),
                 subtitle: Text(
-                    "${surah.numberOfVerses} Ayat | ${surah.revelation?.id ?? 'tidak tersedia'}"),
+                  "${surah.numberOfVerses} Ayat | ${surah.revelation?.id ?? 'tidak tersedia'}",
+                  style: regular,
+                ),
                 trailing: Text(
                   "${surah.name?.short ?? ''}",
-                  style: TextStyle(fontSize: 20),
+                  style: regular.copyWith(fontSize: 20),
                 ),
               );
             },

@@ -1,3 +1,4 @@
+import 'package:alquran/app/constants/constants.dart';
 import 'package:alquran/app/constants/r.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,9 @@ void main() {
         appBarTheme: AppBarTheme(
           backgroundColor: R.colors.primary,
           elevation: 0,
+          titleTextStyle: bold.copyWith(
+            fontSize: 25,
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
