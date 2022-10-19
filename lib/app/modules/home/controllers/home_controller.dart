@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
+  RxBool isDark = false.obs;
+
   // function get all surah
   Future<List<Surah>> getAllSurah() async {
     Uri uri = Uri.parse(ApiUrl.allSurah);

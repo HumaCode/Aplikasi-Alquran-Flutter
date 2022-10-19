@@ -14,7 +14,7 @@ class IntroductionView extends GetView<IntroductionController> {
       body: Center(
         child: Container(
           decoration: BoxDecoration(
-            color: R.colors.secondary,
+            color: Get.isDarkMode ? R.colors.white : R.colors.secondary,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -23,7 +23,8 @@ class IntroductionView extends GetView<IntroductionController> {
                 'My Quran 4.0',
                 style: bold.copyWith(
                   fontSize: 30,
-                  color: R.colors.primary,
+                  color:
+                      Get.isDarkMode ? R.colors.purple700 : R.colors.primary3,
                 ),
               ),
               const SizedBox(height: 20),
@@ -32,23 +33,30 @@ class IntroductionView extends GetView<IntroductionController> {
                 child: Text(
                   '"Sesibukah kamu sampai kau tidak pernah membaca ku..?"',
                   style: regular.copyWith(
-                    fontSize: 15,
-                    fontStyle: FontStyle.italic,
-                    color: R.colors.grey,
-                  ),
+                      fontSize: 15,
+                      fontStyle: FontStyle.italic,
+                      color: Get.isDarkMode
+                          ? R.colors.purple600
+                          : R.colors.primary3),
                   textAlign: TextAlign.center,
                 ),
               ),
               const SizedBox(height: 10),
-              Container(
-                width: 300,
-                height: 300,
-                child: Lottie.asset("assets/lotties/animasi-quran.json"),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  width: 300,
+                  height: 300,
+                  child: Get.isDarkMode
+                      ? Lottie.asset("assets/lotties/animasi-quran2.json")
+                      : Lottie.asset("assets/lotties/animasi-quran.json"),
+                ),
               ),
               const SizedBox(height: 30),
               ElevatedButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: R.colors.secondary2,
+                  backgroundColor:
+                      Get.isDarkMode ? R.colors.orange : R.colors.secondary2,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 50,
                     vertical: 10,
@@ -62,6 +70,8 @@ class IntroductionView extends GetView<IntroductionController> {
                   "MULAI",
                   style: bold.copyWith(
                     fontSize: 25,
+                    color:
+                        Get.isDarkMode ? R.colors.secondary3 : R.colors.black,
                   ),
                 ),
               ),
