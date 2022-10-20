@@ -221,8 +221,11 @@ class HomeView extends GetView<HomeController> {
                                   width: 50,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/bingkai.png"),
+                                      image: controller.isDark.isTrue
+                                          ? AssetImage(
+                                              "assets/images/bingkai2.png")
+                                          : AssetImage(
+                                              "assets/images/bingkai.png"),
                                     ),
                                   ),
                                   child: Center(
@@ -230,6 +233,9 @@ class HomeView extends GetView<HomeController> {
                                       "${surah.number}",
                                       style: regular.copyWith(
                                         fontSize: 18,
+                                        color: controller.isDark.isTrue
+                                            ? R.colors.purple200
+                                            : R.colors.primary,
                                       ),
                                     ),
                                   ),

@@ -10,9 +10,8 @@ import 'app/routes/app_pages.dart';
 void main() {
   runApp(
     GetMaterialApp(
-      theme: appDark,
+      theme: appLight,
       darkTheme: appDark,
-      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       title: "Quran App",
       initialRoute: Routes.INTRODUCTION,

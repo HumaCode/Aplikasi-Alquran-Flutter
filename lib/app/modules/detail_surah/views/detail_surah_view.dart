@@ -12,6 +12,9 @@ class DetailSurahView extends GetView<DetailSurahController> {
 
   @override
   Widget build(BuildContext context) {
+    if (Get.isDarkMode) {
+      controller.isDark.value = true;
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text("Surah ${surah.name?.transliteration?.id ?? ''}"),
@@ -94,23 +97,28 @@ class DetailSurahView extends GetView<DetailSurahController> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/images/bingkai.png"),
+                              Obx(
+                                () => Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: controller.isDark.isTrue
+                                          ? AssetImage(
+                                              "assets/images/bingkai2.png")
+                                          : AssetImage(
+                                              "assets/images/bingkai.png"),
+                                    ),
                                   ),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "${surah.number}",
-                                    style: regular.copyWith(
-                                      fontSize: 18,
-                                      color: Get.isDarkMode
-                                          ? R.colors.wheat
-                                          : R.colors.primary,
+                                  child: Center(
+                                    child: Text(
+                                      "${ayat!.number!.inSurah}",
+                                      style: regular.copyWith(
+                                        fontSize: 18,
+                                        color: Get.isDarkMode
+                                            ? R.colors.purple200
+                                            : R.colors.primary,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -122,7 +130,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
                                     icon: Icon(
                                       Icons.bookmark_add,
                                       color: Get.isDarkMode
-                                          ? R.colors.purple
+                                          ? R.colors.purple200
                                           : R.colors.primary,
                                       size: 20,
                                     ),
@@ -132,7 +140,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
                                     icon: Icon(
                                       Icons.play_arrow_rounded,
                                       color: Get.isDarkMode
-                                          ? R.colors.purple
+                                          ? R.colors.purple200
                                           : R.colors.primary,
                                       size: 20,
                                     ),
@@ -174,7 +182,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
                               style: regular.copyWith(
                                 fontSize: 18,
                                 color: Get.isDarkMode
-                                    ? R.colors.purple30
+                                    ? R.colors.wheat2
                                     : R.colors.black,
                               ),
                               textAlign: TextAlign.justify,
