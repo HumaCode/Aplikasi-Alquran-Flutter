@@ -62,34 +62,13 @@ class DetailSurahView extends GetView<DetailSurahController> {
                 ),
               ),
             ),
-
-            // onTap: () => Get.defaultDialog(
-            //   backgroundColor:
-            //       Get.isDarkMode ? R.colors.purple800 : R.colors.secondary3,
-            //   title: "Tafsir",
-            //   titleStyle: bold,
-            //   content: Padding(
-            //     padding: const EdgeInsets.all(10),
-            //     child: Container(
-            //       child: Text(
-            //         "${surah.tafsir?.id ?? 'Tidak ada tafsir'}",
-            //         style: regular.copyWith(
-            //           fontSize: 18,
-            //         ),
-            //         textAlign: TextAlign.justify,
-            //       ),
-            //     ),
-            //   ),
-            // ),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 gradient: LinearGradient(
                   colors: [
                     Get.isDarkMode ? R.colors.purple : R.colors.primary2,
-                    controller.isDark.isTrue
-                        ? R.colors.purple600
-                        : R.colors.secondary2,
+                    Get.isDarkMode ? R.colors.purple600 : R.colors.secondary2,
                   ],
                 ),
               ),
@@ -109,7 +88,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
                       style: regular.copyWith(
                         fontSize: 15,
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
