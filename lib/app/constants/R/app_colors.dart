@@ -6,13 +6,16 @@ class AppColors {
   Color primary3 = const Color(0xff2f5934);
   Color secondary = const Color(0xffD1F1DD);
   Color secondary3 = const Color(0xffF2FBF6);
+  Color secondary4 = const Color(0xffE8FFEC);
   Color secondary2 = const Color(0xff70B989);
   Color red = const Color(0xffFA5230);
   Color grey = const Color(0xff9c9c9c);
+  Color grey100 = const Color(0xffEFEFEF);
   Color white = const Color(0xffffffff);
 
   Color black = const Color(0xff010313);
   Color purple = const Color(0xff943DF4);
+  Color purple5 = const Color(0xffF48BF6);
   Color purple10 = const Color(0xffb227c2);
   Color purple20 = const Color(0xff9755FD);
   Color purple30 = const Color(0xff495384);

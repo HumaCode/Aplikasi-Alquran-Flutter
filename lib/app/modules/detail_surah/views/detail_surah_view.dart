@@ -23,26 +23,95 @@ class DetailSurahView extends GetView<DetailSurahController> {
       body: ListView(
         padding: const EdgeInsets.all(5),
         children: [
-          Card(
-            color: Get.isDarkMode ? R.colors.purple : R.colors.secondary3,
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Text(
-                    "${surah.name?.transliteration?.id ?? ''}",
-                    style: bold.copyWith(
-                      fontSize: 20,
-                    ),
+          GestureDetector(
+            onTap: () => Get.dialog(
+              Dialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Get.isDarkMode
+                        ? R.colors.purple800
+                        : R.colors.secondary3,
                   ),
-                  const SizedBox(height: 5),
-                  Text(
-                    "${surah.numberOfVerses ?? ''} Ayat | ${surah.revelation?.id ?? ''} | ${surah.name?.translation?.id ?? ''}",
-                    style: regular.copyWith(
-                      fontSize: 15,
-                    ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Tafsir -  ${surah.name?.transliteration?.id ?? ''}",
+                        style: bold.copyWith(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Divider(
+                        color: R.colors.primary,
+                        thickness: 3,
+                      ),
+                      Text(
+                        "${surah.tafsir?.id ?? 'Tidak ada tafsir'}",
+                        style: regular.copyWith(
+                          fontSize: 18,
+                        ),
+                        textAlign: TextAlign.justify,
+                      ),
+                    ],
                   ),
-                ],
+                ),
+              ),
+            ),
+
+            // onTap: () => Get.defaultDialog(
+            //   backgroundColor:
+            //       Get.isDarkMode ? R.colors.purple800 : R.colors.secondary3,
+            //   title: "Tafsir",
+            //   titleStyle: bold,
+            //   content: Padding(
+            //     padding: const EdgeInsets.all(10),
+            //     child: Container(
+            //       child: Text(
+            //         "${surah.tafsir?.id ?? 'Tidak ada tafsir'}",
+            //         style: regular.copyWith(
+            //           fontSize: 18,
+            //         ),
+            //         textAlign: TextAlign.justify,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: LinearGradient(
+                  colors: [
+                    Get.isDarkMode ? R.colors.purple : R.colors.primary2,
+                    controller.isDark.isTrue
+                        ? R.colors.purple600
+                        : R.colors.secondary2,
+                  ],
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Text(
+                      "${surah.name?.transliteration?.id ?? ''}",
+                      style: bold.copyWith(
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "${surah.numberOfVerses ?? ''} Ayat | ${surah.revelation?.id ?? ''} | ${surah.name?.translation?.id ?? ''}",
+                      style: regular.copyWith(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -87,10 +156,19 @@ class DetailSurahView extends GetView<DetailSurahController> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Card(
-                        color: Get.isDarkMode
-                            ? R.colors.purple800
-                            : R.colors.secondary3,
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40),
+                          color: Get.isDarkMode
+                              ? R.colors.purple800
+                              : R.colors.secondary4,
+                          border: Border.all(
+                            color: Get.isDarkMode
+                                ? R.colors.purple
+                                : R.colors.secondary4,
+                            width: 2,
+                          ),
+                        ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 10),
@@ -160,8 +238,10 @@ class DetailSurahView extends GetView<DetailSurahController> {
                             Text(
                               "${ayat!.text?.arab}",
                               style: regular.copyWith(
-                                fontSize: 28,
-                                color: R.colors.wheat2,
+                                fontSize: 35,
+                                color: Get.isDarkMode
+                                    ? R.colors.purple5
+                                    : R.colors.black,
                               ),
                               textAlign: TextAlign.end,
                             ),
@@ -171,7 +251,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
                               style: regular.copyWith(
                                 fontSize: 18,
                                 color: Get.isDarkMode
-                                    ? R.colors.purple10
+                                    ? R.colors.purple5
                                     : R.colors.primary,
                               ),
                               textAlign: TextAlign.justify,
